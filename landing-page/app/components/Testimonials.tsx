@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const testimonials = [
     {
       name: "Sarah Thompson",
@@ -31,10 +33,12 @@ const testimonials = [
         <div className="relative max-w-7xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:py-20">
           <div className="relative lg:flex lg:items-center">
             <div className="hidden lg:block lg:flex-shrink-0">
-              <img
+              <Image
                 className="h-64 w-64 rounded-full xl:h-80 xl:w-80"
                 src="/placeholder.svg?height=320&width=320"
                 alt="Customer testimonial"
+                width={320}
+                height={320}
               />
             </div>
             <div className="relative lg:ml-10">
@@ -56,7 +60,7 @@ const testimonials = [
                 <footer className="mt-8">
                   <div className="flex">
                     <div className="flex-shrink-0">
-                      <img className="h-12 w-12 rounded-full" src={testimonials[0].image || "/placeholder.svg"} alt="" />
+                      <Image className="h-12 w-12 rounded-full" src={testimonials[0].image || "/placeholder.svg"} alt="" width={96} height={96} />
                     </div>
                     <div className="ml-4">
                       <div className="text-base font-medium text-gray-900">{testimonials[0].name}</div>
@@ -75,5 +79,3 @@ const testimonials = [
   }
   
   export default Testimonials
-  
-  

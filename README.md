@@ -2,6 +2,9 @@
 
 Welcome to the CaseBud codebase! This repository contains the source code for the CaseBud project, including the frontend, backend, model, and landing page applications.
 
+## Live Demo
+![CaseBud Demo](landing-page/public/CaseBud%20Demo.png)
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)

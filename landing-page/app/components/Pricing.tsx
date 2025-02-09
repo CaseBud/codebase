@@ -36,7 +36,7 @@ const Pricing = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:flex-col sm:align-center">
           <h1 className="text-5xl font-extrabold text-gray-900 sm:text-center">Pricing Plans</h1>
-          <p className="mt-5 text-xl text-gray-500 sm:text-center">Choose the perfect plan for your team's needs</p>
+          <p className="mt-5 text-xl text-gray-500 sm:text-center">Choose the perfect plan for your team&apos;s needs</p>
         </div>
         <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
           {plans.map((plan) => (
@@ -55,7 +55,7 @@ const Pricing = () => {
                 </a>
               </div>
               <div className="pt-6 pb-8 px-6">
-                <h3 className="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+                <h3 className="text-xs font-medium text-gray-900 tracking-wide uppercase">What&apos;s included</h3>
                 <ul className="mt-6 space-y-4">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex space-x-3">
@@ -74,4 +74,3 @@ const Pricing = () => {
 }
 
 export default Pricing
-

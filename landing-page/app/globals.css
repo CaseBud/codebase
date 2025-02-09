@@ -118,6 +118,10 @@ h6 {
   transition: all 0.3s ease;
 }
 
+.card-header {
+  color: #ffffff;
+}
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -156,7 +160,13 @@ h6 {
 .gradient-text {
   background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
   -webkit-background-clip: text;
+  -backgroud-clip: text;
+  -clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.form-label {
+  color: #ffffff;
 }
 
 .form-control {

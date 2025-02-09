@@ -1,5 +1,7 @@
-'use client'; 
-import { ArrowRight, MessageSquare, Zap, Shield } from "lucide-react"
+'use client';
+
+import Image from 'next/image'
+import { MessageSquare, Zap, Shield } from "lucide-react"
 
 export default function Hero() {
   return (
@@ -16,21 +18,11 @@ export default function Hero() {
               <span className="gradient-text">Chat Assistant</span>
             </h1>
             <p className="lead mb-5 text-secondary" style={{ fontSize: "1.25rem" }}>
-            Get instant legal answers and expert guidance anytime. Simplify your legal research and tasks with advanced AI-powered assistance.
+              Get instant legal answers and expert guidance anytime. Simplify your legal research and tasks with advanced AI-powered assistance.
             </p>
-            <div className="d-flex gap-3 align-items-center">
+            
 
-                 {/* Route to Casebud Log */}
-                 {/* <button 
-  onClick={() => window.open('https://casebud-x9h9.onrender.com', '_blank')} 
-  className="btn btn-primary btn-lg d-flex align-items-center gap-2 transition-all hover:opacity-90 active:scale-95"
-  style={{ cursor: 'pointer' }}
->
-  Try CaseBud, It's Free <ArrowRight size={20} />
-</button> */}
 
-              
-            </div>
             <div className="mt-5 d-flex gap-4">
               <div className="d-flex align-items-center">
                 <MessageSquare size={24} className="text-primary me-2" />
@@ -48,12 +40,14 @@ export default function Hero() {
           </div>
           <div className="col-lg-6">
             <div className="position-relative">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-W2jDwcNxqRX1uiMjTCdLPKsXJrT5oH.png"
-                alt="CaseBud AI Interface"
-                className="img-fluid rounded-4 shadow-lg floating"
-                style={{ border: "1px solid rgba(255, 255, 255, 0.1)" }}
-              />
+            <Image
+  src="/CaseBud Demo.png" // Place the image in the public folder
+  alt="CaseBud AI Interface"
+  className="img-fluid rounded-4 shadow-lg floating"
+  style={{ border: "1px solid rgba(255, 255, 255, 0.1)" }}
+  width={500}
+  height={500}
+/>
             </div>
           </div>
         </div>
@@ -61,4 +55,3 @@ export default function Hero() {
     </section>
   )
 }
-

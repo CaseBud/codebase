@@ -2,8 +2,61 @@
 
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin } from "lucide-react"
+import { useState } from "react"
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setSubmitStatus({
+        type: 'success',
+        message: 'Message sent successfully!'
+      });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again.'
+      });
+      console.error('Error sending message:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }));
+  };
+
   return (
     <section className="section-padding" id="contact">
       <div className="container">
@@ -26,32 +79,59 @@ export default function Contact() {
               viewport={{ once: true }}
             >
               <div className="card-body p-4">
-                <form>
+                <form onSubmit={handleSubmit}>
+                  {submitStatus.type && (
+                    <div className={`alert alert-${submitStatus.type === 'success' ? 'success' : 'danger'} mb-3`}>
+                      {submitStatus.message}
+                    </div>
+                  )}
                   <div className="mb-3">
                     <label htmlFor="name" className="form-label">
                       Name
                     </label>
-                    <input type="text" className="form-control" id="name" required />
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">
                       Email
                     </label>
-                    <input type="email" className="form-control" id="email" required />
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="message" className="form-label">
                       Message
                     </label>
-                    <textarea className="form-control" id="message" rows={5} required></textarea>
+                    <textarea
+                      className="form-control"
+                      id="message"
+                      rows={5}
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                    ></textarea>
                   </div>
                   <motion.button
                     type="submit"
                     className="btn btn-primary"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    disabled={isSubmitting}
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </motion.button>
                 </form>
               </div>
@@ -68,7 +148,7 @@ export default function Contact() {
                 >
                   <Mail size={24} className="mb-3 text-primary" />
                   <h4 className="h5">Email</h4>
-                  <p>CaseBudAi@Gmail.com</p>
+                  <p><a href="mailto:casebudai@gmail.com">casebudai@gmail.com</a></p>
                 </motion.div>
               </div>
               <div className="col-md-4">
@@ -81,9 +161,9 @@ export default function Contact() {
                 >
                   <Phone size={24} className="mb-3 text-primary" />
                   <h4 className="h5">Phone</h4>
-                  <p>+234 901 299 5866</p>
-                  <p>+234 906 781 2179</p>
-                  <p>+234 705 139 9129</p>
+                    <p><a href="tel:+2349012995866">+234 901 299 5866</a></p>
+                    <p><a href="tel:+2347051399129">+234 705 139 9129</a></p>
+                    <p><a href="tel:+2349067812179">+234 906 781 2179</a></p>
                 </motion.div>
               </div>
               <div className="col-md-4">

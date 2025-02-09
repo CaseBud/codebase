@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
+import Image from 'next/image'
 
 export default function Demo() {
   const [activeTab, setActiveTab] = useState(0)
@@ -69,10 +70,12 @@ export default function Demo() {
                           <p>{feature.description}</p>
                         </div>
                         <div className="col-lg-6">
-                          <img
+                          <Image
                             src={feature.image || "/placeholder.svg"}
                             alt={feature.title}
                             className="img-fluid rounded"
+                            width={500}
+                            height={300}
                           />
                         </div>
                       </div>
@@ -87,4 +90,3 @@ export default function Demo() {
     </section>
   )
 }
-

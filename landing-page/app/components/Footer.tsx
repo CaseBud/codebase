@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="d-flex justify-content-between pt-4 mt-4 border-top">
-          <p>&copy; 2024 CaseBud AI. All rights reserved.</p>
+          <p>&copy; 2025 CaseBud AI. All rights reserved.</p>
           <ul className="list-unstyled d-flex">
             <li className="ms-3">
               <a className="link-light" href="#">

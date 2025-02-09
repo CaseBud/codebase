@@ -49,7 +49,7 @@ export default function UseCases() {
               <div className="card h-100 p-4" style={{ borderColor: useCase.color }}>
                 <div className="card-body">
                   <useCase.icon style={{ color: useCase.color }} className="mb-4" size={40} />
-                  <h3 className="h4 mb-3">{useCase.title}</h3>
+                  <h3 className="h4 mb-3 card-header">{useCase.title}</h3>
                   <p className="text-secondary mb-0">{useCase.description}</p>
                 </div>
               </div>

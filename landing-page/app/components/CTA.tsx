@@ -8,7 +8,7 @@ export default function CTA() {
         <div className="cta-section text-center">
           <h2 className="display-4 fw-bold mb-4 text-white">Ready to Experience the Future of Law?</h2>
           <p className="lead text-white mb-5" style={{ maxWidth: "600px", margin: "0 auto" }}>
-          Transform your legal work today with CaseBud's groundbreaking AI assistance.
+          Transform your legal work today with CaseBud&apos;s groundbreaking AI assistance.
           </p>
           <button 
   onClick={() => window.open('https://casebud-x9h9.onrender.com', '_blank')} 
@@ -21,4 +21,3 @@ export default function CTA() {
     </section>
   )
 }
-

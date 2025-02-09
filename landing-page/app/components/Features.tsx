@@ -1,4 +1,4 @@
-import { MessageSquare, Search, Zap, Globe, BookOpen, Code, Lightbulb, Headphones, FileText } from "lucide-react"
+import { MessageSquare, Search, Zap, Globe, BookOpen, Lightbulb, Headphones, FileText } from "lucide-react"
 
 const features = [
     {
@@ -8,13 +8,13 @@ const features = [
     },
     {
         icon: Search,
-        title: "Instant Legal Answers",
-        description: "Get quick and reliable legal information on various topics, anytime.",
+        title: "Up-To-Date Legal Information",
+        description: "Get real-time and reliable legal information on various topics with our web search (beta).",
     },
     {
         icon: Zap,
-        title: "Legal Task Automation",
-        description: "Streamline document drafting, contract reviews, and other legal tasks with AI assistance.",
+        title: "Legal Document Analysis",
+        description: "Break down legal jargon from complex legal documents.",
     },
     {
         icon: Globe,
@@ -63,7 +63,7 @@ export default function Features() {
             <div key={index} className="card h-100 p-4">
               <div className="card-body">
                 <feature.icon className="feature-icon" size={32} />
-                <h3 className="h4 mb-3">{feature.title}</h3>
+                <h3 className="h4 mb-3 card-header">{feature.title}</h3>
                 <p className="text-secondary mb-0">{feature.description}</p>
               </div>
             </div>
@@ -73,4 +73,3 @@ export default function Features() {
     </section>
   )
 }
-
